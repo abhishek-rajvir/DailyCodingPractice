@@ -1,6 +1,50 @@
-// Here i have provided 3 solutions for the problem [2 in java and 1 in c++]
+Here i have provided 4 solutions for the problem [3 in java and 1 in c++]
 
-// Solution 1 [HashMap avg tc and avg sc ]
+// Solution 1.1 [1 pass HashMap best tc and avg sc ]
+
+// Runtime
+// 2
+// ms
+// Beats
+// 99.16%
+// Analyze Complexity
+// Memory
+// 47.41
+// MB
+// Beats
+// 8.54%
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+
+        // intialising variable
+        int i = 0, j = 1;
+
+        // create a map data as index and position as value
+        Map<Integer,Integer> hm = new HashMap<>();
+
+        // iterate over array
+        for (int k = 0; k < nums.length; k++) {
+            // diff between target and curr index [9-2]=7
+            int diff = target-nums[k];
+
+            // if diff is in the map break
+            if( hm.containsKey(diff) ){
+                i = k;
+                // get the index of diff value from map
+                j = hm.get(diff);
+                break;
+            }
+            // else add the curr to map
+            hm.put(nums[k],k);
+        }
+
+        // return i and j
+        return new int[] { i, j };
+    }
+}
+
+// Solution 1.2 [HashMap avg tc and avg sc ]
 
 // Runtime
 // 10
